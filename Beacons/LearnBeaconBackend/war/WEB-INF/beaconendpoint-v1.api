@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://learn-beacon.appspot.com/_ah/api",
-  "name" : "layerendpoint",
+  "name" : "beaconendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,35 +27,14 @@
   "ownerName" : "ounl.org",
   "packagePath" : "lifelonglearninghub.learnbeacon.backend.db",
   "methods" : {
-    "layerendpoint.removeLayer" : {
-      "path" : "layer/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.removeLayer",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
-    },
-    "layerendpoint.insertLayer" : {
-      "path" : "layer",
+    "beaconendpoint.insertBeacon" : {
+      "path" : "beacon",
       "httpMethod" : "POST",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.insertLayer",
+      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.insertBeacon",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -64,14 +43,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "layerendpoint.updateLayer" : {
-      "path" : "layer",
+    "beaconendpoint.updateBeacon" : {
+      "path" : "beacon",
       "httpMethod" : "PUT",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.updateLayer",
+      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.updateBeacon",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -80,14 +59,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "layerendpoint.getLayer" : {
-      "path" : "layer/{id}",
+    "beaconendpoint.getBeacon" : {
+      "path" : "beacon/{id}",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.getLayer",
+      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.getBeacon",
       "request" : {
         "parameters" : {
           "id" : {
@@ -101,14 +80,35 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "layerendpoint.listLayer" : {
-      "path" : "layer",
+    "beaconendpoint.removeBeacon" : {
+      "path" : "beacon/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.removeBeacon",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "beaconendpoint.listBeacon" : {
+      "path" : "beacon",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.listLayer",
+      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.listBeacon",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -129,66 +129,39 @@
   },
   "descriptor" : {
     "schemas" : {
-      "Layer" : {
-        "id" : "Layer",
+      "Beacon" : {
+        "id" : "Beacon",
         "type" : "object",
         "properties" : {
           "id" : {
             "type" : "string",
             "format" : "int64"
           },
+          "artefact_name" : {
+            "type" : "string"
+          },
+          "artefact_latitude" : {
+            "type" : "number"
+          },
+          "artefact_longitude" : {
+            "type" : "number"
+          },
           "beacon_id" : {
             "type" : "string"
           },
-          "layer_cc" : {
-            "type" : "string"
-          },
-          "level" : {
-            "type" : "integer"
-          },
-          "distance" : {
-            "type" : "integer"
-          },
-          "signal" : {
-            "type" : "integer"
-          },
-          "content" : {
-            "$ref" : "Text"
-          },
-          "tag" : {
-            "type" : "string"
-          },
-          "timestamp_update" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "timestamp_validity_start" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "timestamp_validity_end" : {
-            "type" : "string",
-            "format" : "int64"
-          }
-        }
-      },
-      "Text" : {
-        "id" : "Text",
-        "type" : "object",
-        "properties" : {
-          "value" : {
+          "licence_cc" : {
             "type" : "string"
           }
         }
       },
-      "CollectionResponse_Layer" : {
-        "id" : "CollectionResponse_Layer",
+      "CollectionResponse_Beacon" : {
+        "id" : "CollectionResponse_Beacon",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Layer"
+              "$ref" : "Beacon"
             }
           },
           "nextPageToken" : {
@@ -198,32 +171,32 @@
       }
     },
     "methods" : {
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.removeLayer" : {
-      },
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.insertLayer" : {
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.insertBeacon" : {
         "request" : {
-          "$ref" : "Layer"
+          "$ref" : "Beacon"
         },
         "response" : {
-          "$ref" : "Layer"
+          "$ref" : "Beacon"
         }
       },
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.updateLayer" : {
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.updateBeacon" : {
         "request" : {
-          "$ref" : "Layer"
+          "$ref" : "Beacon"
         },
         "response" : {
-          "$ref" : "Layer"
+          "$ref" : "Beacon"
         }
       },
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.getLayer" : {
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.getBeacon" : {
         "response" : {
-          "$ref" : "Layer"
+          "$ref" : "Beacon"
         }
       },
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.LayerEndpoint.listLayer" : {
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.removeBeacon" : {
+      },
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.listBeacon" : {
         "response" : {
-          "$ref" : "CollectionResponse_Layer"
+          "$ref" : "CollectionResponse_Beacon"
         }
       }
     }

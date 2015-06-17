@@ -1,5 +1,6 @@
 package org.ounl.lifelonglearninghub.learnbeacon.backend.db;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -71,6 +72,71 @@ public class LayerEndpoint {
 				.setNextPageToken(cursorString).build();
 	}
 
+	
+	
+	/**
+	 * This method lists all the entities inserted in datastore 
+	 * for a given beacon id. 
+	 * 
+	 * @param beacon_id
+	 * 
+	 * It uses HTTP GET method and paging support.
+	 * 
+	 * @return A CollectionResponse class containing the list of all entities
+	 *         persisted and a cursor to the next page.
+	 */
+	@SuppressWarnings({ "unchecked", "unused" })
+	@ApiMethod(name = "listLayersForBeacon", path = "layer/beacon/{beacon_id}")
+	public CollectionResponse<Layer> listLayersForBeacon(
+			@Named("beacon_id") String beaconId,
+			@Nullable @Named("cursor") String cursorString,
+			@Nullable @Named("limit") Integer limit) {
+
+		PersistenceManager mgr = null;
+		Cursor cursor = null;
+		List<Layer> listLayer = null;
+		List<Layer> listLayerFilteredByBeaconId = new ArrayList<Layer>();
+
+		try {
+			mgr = getPersistenceManager();
+			Query query = mgr.newQuery(Layer.class);
+			if (cursorString != null && cursorString != "") {
+				cursor = Cursor.fromWebSafeString(cursorString);
+				HashMap<String, Object> extensionMap = new HashMap<String, Object>();
+				extensionMap.put(JDOCursorHelper.CURSOR_EXTENSION, cursor);
+				query.setExtensions(extensionMap);
+			}
+
+			if (limit != null) {
+				query.setRange(0, limit);
+			}
+
+			listLayer = (List<Layer>) query.execute();
+			
+            for (Layer obj : listLayer) {
+
+                String sBeaconId = obj.getBeacon_id();
+
+                if (sBeaconId.compareToIgnoreCase(beaconId) == 0) {
+                        listLayerFilteredByBeaconId.add(obj);
+                }
+                
+            }			
+						
+			cursor = JDOCursorHelper.getCursor(listLayerFilteredByBeaconId);
+			if (cursor != null)
+				cursorString = cursor.toWebSafeString();
+
+		} finally {
+			mgr.close();
+		}
+		
+		
+		return CollectionResponse.<Layer> builder().setItems(listLayerFilteredByBeaconId)
+				.setNextPageToken(cursorString).build();
+	}	
+	
+	
 	/**
 	 * This method gets the entity having primary key id. It uses HTTP GET
 	 * method.
