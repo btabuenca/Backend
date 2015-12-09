@@ -43,22 +43,6 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "beaconendpoint.updateBeacon" : {
-      "path" : "beacon",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.updateBeacon",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "beaconendpoint.getBeacon" : {
       "path" : "beacon/{id}",
       "httpMethod" : "GET",
@@ -75,6 +59,22 @@
           }
         },
         "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "beaconendpoint.updateBeacon" : {
+      "path" : "beacon",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.updateBeacon",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -179,15 +179,15 @@
           "$ref" : "Beacon"
         }
       },
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.updateBeacon" : {
-        "request" : {
-          "$ref" : "Beacon"
-        },
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.getBeacon" : {
         "response" : {
           "$ref" : "Beacon"
         }
       },
-      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.getBeacon" : {
+      "org.ounl.lifelonglearninghub.learnbeacon.backend.db.BeaconEndpoint.updateBeacon" : {
+        "request" : {
+          "$ref" : "Beacon"
+        },
         "response" : {
           "$ref" : "Beacon"
         }

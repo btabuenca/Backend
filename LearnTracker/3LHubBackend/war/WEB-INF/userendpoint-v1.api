@@ -27,6 +27,27 @@
   "ownerName" : "ounl.org",
   "packagePath" : "lifelonglearninghub.db",
   "methods" : {
+    "userendpoint.removeUser" : {
+      "path" : "user/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.UserEndpoint.removeUser",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
     "userendpoint.listUserCourse" : {
       "path" : "user/course/{subject_desc}",
       "httpMethod" : "GET",
@@ -54,27 +75,6 @@
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "userendpoint.removeUser" : {
-      "path" : "user/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.UserEndpoint.removeUser",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
       }
     },
     "userendpoint.insertUser" : {
@@ -194,12 +194,12 @@
       }
     },
     "methods" : {
+      "org.ounl.lifelonglearninghub.db.UserEndpoint.removeUser" : {
+      },
       "org.ounl.lifelonglearninghub.db.UserEndpoint.listUserCourse" : {
         "response" : {
           "$ref" : "CollectionResponse_User"
         }
-      },
-      "org.ounl.lifelonglearninghub.db.UserEndpoint.removeUser" : {
       },
       "org.ounl.lifelonglearninghub.db.UserEndpoint.insertUser" : {
         "request" : {

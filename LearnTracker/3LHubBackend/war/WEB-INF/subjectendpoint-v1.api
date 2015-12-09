@@ -134,6 +134,31 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "subjectendpoint.listCourses" : {
+      "path" : "courses/",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.SubjectEndpoint.listCourses",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "subjectendpoint.removeSubject" : {
       "path" : "subject/{id}",
       "httpMethod" : "DELETE",
@@ -205,6 +230,21 @@
             "type" : "integer"
           }
         }
+      },
+      "CollectionResponse_String" : {
+        "id" : "CollectionResponse_String",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
       }
     },
     "methods" : {
@@ -237,6 +277,11 @@
         },
         "response" : {
           "$ref" : "Subject"
+        }
+      },
+      "org.ounl.lifelonglearninghub.db.SubjectEndpoint.listCourses" : {
+        "response" : {
+          "$ref" : "CollectionResponse_String"
         }
       },
       "org.ounl.lifelonglearninghub.db.SubjectEndpoint.removeSubject" : {

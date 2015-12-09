@@ -90,6 +90,69 @@ public class SubjectEndpoint {
 				.setNextPageToken(cursorString).build();
 	}
 	
+	
+	
+	/**
+	 * This method lists all the courses ID for existing subjects. It uses HTTP.
+	 * GET method and paging support.
+	 * 
+	 * @return Ordered list of strings with coursed id
+	 */
+	@SuppressWarnings({ "unchecked", "unused" })
+	@ApiMethod(name = "listCourses", path="courses/")
+	
+	public CollectionResponse<String> listCourses(
+			@Nullable @Named("cursor") String cursorString,
+			@Nullable @Named("limit") Integer limit) {
+
+		PersistenceManager mgr = null;
+		Cursor cursor = null;
+		List<Subject> subjectsList = null;
+		List<String> coursesList = new ArrayList<String>();
+
+		try {
+			mgr = getPersistenceManager();
+			Query query = mgr.newQuery(Subject.class);
+			if (cursorString != null && cursorString != "") {
+				cursor = Cursor.fromWebSafeString(cursorString);
+				HashMap<String, Object> extensionMap = new HashMap<String, Object>();
+				extensionMap.put(JDOCursorHelper.CURSOR_EXTENSION, cursor);
+				query.setExtensions(extensionMap);
+			}
+
+			if (limit != null) {
+				query.setRange(0, limit);
+			}
+
+			subjectsList = (List<Subject>) query.execute();
+			
+			
+			for (Subject obj : subjectsList){
+				String sSubjectDesc = obj.getSubject_desc();			
+				if (!coursesList.contains(sSubjectDesc)) {
+					coursesList.add(sSubjectDesc);					
+				}
+
+			}
+			
+			// Sort list
+			java.util.Collections.sort(coursesList);			
+			
+			cursor = JDOCursorHelper.getCursor(subjectsList);
+			if (cursor != null)
+				cursorString = cursor.toWebSafeString();
+
+
+		} finally {
+			mgr.close();
+		}
+				
+		return CollectionResponse.<String> builder().setItems(coursesList)
+				.setNextPageToken(cursorString).build();
+	}
+	
+	
+	
 	/**
 	 * This method lists all the entities inserted in datastore for a given subject_desc. 
 	 * It uses HTTP GET method and paging support.
