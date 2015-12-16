@@ -48,22 +48,6 @@
         "body" : "empty"
       }
     },
-    "enrolmentendpoint.insertEnrolment" : {
-      "path" : "enrolment",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.insertEnrolment",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "enrolmentendpoint.getEnrolment" : {
       "path" : "enrolment/{id}",
       "httpMethod" : "GET",
@@ -80,6 +64,22 @@
           }
         },
         "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "enrolmentendpoint.insertEnrolment" : {
+      "path" : "enrolment",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.insertEnrolment",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -169,15 +169,15 @@
     "methods" : {
       "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.removeEnrolment" : {
       },
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.insertEnrolment" : {
-        "request" : {
-          "$ref" : "Enrolment"
-        },
+      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.getEnrolment" : {
         "response" : {
           "$ref" : "Enrolment"
         }
       },
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.getEnrolment" : {
+      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.insertEnrolment" : {
+        "request" : {
+          "$ref" : "Enrolment"
+        },
         "response" : {
           "$ref" : "Enrolment"
         }

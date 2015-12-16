@@ -38,8 +38,9 @@ public class Csv2Curl {
 	private static final String PARAM_SUBJECTS = "S";
 	private static final String PARAM_USERS = "U";
 
-	private static final String COURSE = "OUNL_N35231";
-	private static final String PATH_FILES = "/Users/BTB/Projects/3LHub/db/ScriptsAppengineDB/";
+	private static final String COURSE = "LT2R1";
+	//private static final String PATH_FILES = "/Users/BTB/Projects/3LHub/db/ScriptsAppengineDB/";
+	private static final String PATH_FILES = "/Users/BTB/Projects/GitHub/Backend/LearnTracker/Csv2CurlParser/files/";
 	
 	
 	public static void main(String[] args) {
@@ -87,8 +88,8 @@ public class Csv2Curl {
 //		" https://lifelong-learning-hub.appspot.com/_ah/api/subjectendpoint/v1/subject
 	 
 
-	public void parseYardstick() {		
-		String csvFile = PATH_FILES + "inputY.csv";
+	private void parseYardstick() {		
+		String csvFile = PATH_FILES + "Input_Yardstick_"+COURSE+".csv";
 		String outputFile = PATH_FILES + "Output_Yardstick_"+COURSE+".sh";
 		BufferedReader br = null;
 		String line = "";
@@ -170,8 +171,10 @@ public class Csv2Curl {
 //		'user_type':'300'
 //	}
 //	" https://lifelong-learning-hub.appspot.com/_ah/api/userendpoint/v1/user
-	public void parseUsers() {		
-		String csvFile = PATH_FILES + "inputU.csv";
+	private void parseUsers() {		
+		
+		//String csvFile = PATH_FILES + "inputU.csv";
+		String csvFile = PATH_FILES + "Input_Users_"+COURSE+".csv";
 		String outputFile = PATH_FILES + "Output_Users_"+COURSE+".sh";
 		BufferedReader br = null;
 		String line = "";
