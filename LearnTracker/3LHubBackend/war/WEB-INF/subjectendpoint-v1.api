@@ -118,22 +118,6 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "subjectendpoint.updateSubject" : {
-      "path" : "subject",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.SubjectEndpoint.updateSubject",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "subjectendpoint.listCourses" : {
       "path" : "courses/",
       "httpMethod" : "GET",
@@ -157,27 +141,6 @@
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "subjectendpoint.removeSubject" : {
-      "path" : "subject/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.SubjectEndpoint.removeSubject",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
       }
     }
   },
@@ -271,20 +234,10 @@
           "$ref" : "Subject"
         }
       },
-      "org.ounl.lifelonglearninghub.db.SubjectEndpoint.updateSubject" : {
-        "request" : {
-          "$ref" : "Subject"
-        },
-        "response" : {
-          "$ref" : "Subject"
-        }
-      },
       "org.ounl.lifelonglearninghub.db.SubjectEndpoint.listCourses" : {
         "response" : {
           "$ref" : "CollectionResponse_String"
         }
-      },
-      "org.ounl.lifelonglearninghub.db.SubjectEndpoint.removeSubject" : {
       }
     }
   }

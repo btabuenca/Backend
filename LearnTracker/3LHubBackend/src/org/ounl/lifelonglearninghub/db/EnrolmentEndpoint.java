@@ -143,19 +143,19 @@ public class EnrolmentEndpoint {
 	 *            the entity to be updated.
 	 * @return The updated entity.
 	 */
-	@ApiMethod(name = "updateEnrolment")
-	public Enrolment updateEnrolment(Enrolment enrolment) {
-		PersistenceManager mgr = getPersistenceManager();
-		try {
-			if (!containsEnrolment(enrolment)) {
-				throw new EntityNotFoundException("Object does not exist");
-			}
-			mgr.makePersistent(enrolment);
-		} finally {
-			mgr.close();
-		}
-		return enrolment;
-	}
+//	@ApiMethod(name = "updateEnrolment")
+//	public Enrolment updateEnrolment(Enrolment enrolment) {
+//		PersistenceManager mgr = getPersistenceManager();
+//		try {
+//			if (!containsEnrolment(enrolment)) {
+//				throw new EntityNotFoundException("Object does not exist");
+//			}
+//			mgr.makePersistent(enrolment);
+//		} finally {
+//			mgr.close();
+//		}
+//		return enrolment;
+//	}
 
 	/**
 	 * This method removes the entity with primary key id. It uses HTTP DELETE
@@ -164,16 +164,16 @@ public class EnrolmentEndpoint {
 	 * @param id
 	 *            the primary key of the entity to be deleted.
 	 */
-	@ApiMethod(name = "removeEnrolment")
-	public void removeEnrolment(@Named("id") Long id) {
-		PersistenceManager mgr = getPersistenceManager();
-		try {
-			Enrolment enrolment = mgr.getObjectById(Enrolment.class, id);
-			mgr.deletePersistent(enrolment);
-		} finally {
-			mgr.close();
-		}
-	}
+//	@ApiMethod(name = "removeEnrolment")
+//	public void removeEnrolment(@Named("id") Long id) {
+//		PersistenceManager mgr = getPersistenceManager();
+//		try {
+//			Enrolment enrolment = mgr.getObjectById(Enrolment.class, id);
+//			mgr.deletePersistent(enrolment);
+//		} finally {
+//			mgr.close();
+//		}
+//	}
 
 	private boolean containsEnrolment(Enrolment enrolment) {
 		PersistenceManager mgr = getPersistenceManager();

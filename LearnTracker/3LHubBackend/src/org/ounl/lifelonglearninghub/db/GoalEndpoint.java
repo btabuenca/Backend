@@ -143,19 +143,19 @@ public class GoalEndpoint {
 	 *            the entity to be updated.
 	 * @return The updated entity.
 	 */
-	@ApiMethod(name = "updateGoal")
-	public Goal updateGoal(Goal goal) {
-		PersistenceManager mgr = getPersistenceManager();
-		try {
-			if (!containsGoal(goal)) {
-				throw new EntityNotFoundException("Object does not exist");
-			}
-			mgr.makePersistent(goal);
-		} finally {
-			mgr.close();
-		}
-		return goal;
-	}
+//	@ApiMethod(name = "updateGoal")
+//	public Goal updateGoal(Goal goal) {
+//		PersistenceManager mgr = getPersistenceManager();
+//		try {
+//			if (!containsGoal(goal)) {
+//				throw new EntityNotFoundException("Object does not exist");
+//			}
+//			mgr.makePersistent(goal);
+//		} finally {
+//			mgr.close();
+//		}
+//		return goal;
+//	}
 
 	/**
 	 * This method removes the entity with primary key id. It uses HTTP DELETE
@@ -164,16 +164,16 @@ public class GoalEndpoint {
 	 * @param id
 	 *            the primary key of the entity to be deleted.
 	 */
-	@ApiMethod(name = "removeGoal")
-	public void removeGoal(@Named("id") Long id) {
-		PersistenceManager mgr = getPersistenceManager();
-		try {
-			Goal goal = mgr.getObjectById(Goal.class, id);
-			mgr.deletePersistent(goal);
-		} finally {
-			mgr.close();
-		}
-	}
+//	@ApiMethod(name = "removeGoal")
+//	public void removeGoal(@Named("id") Long id) {
+//		PersistenceManager mgr = getPersistenceManager();
+//		try {
+//			Goal goal = mgr.getObjectById(Goal.class, id);
+//			mgr.deletePersistent(goal);
+//		} finally {
+//			mgr.close();
+//		}
+//	}
 
 	private boolean containsGoal(Goal goal) {
 		PersistenceManager mgr = getPersistenceManager();

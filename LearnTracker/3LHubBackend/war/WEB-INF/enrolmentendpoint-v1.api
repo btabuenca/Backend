@@ -27,27 +27,6 @@
   "ownerName" : "ounl.org",
   "packagePath" : "lifelonglearninghub.db",
   "methods" : {
-    "enrolmentendpoint.removeEnrolment" : {
-      "path" : "enrolment/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.removeEnrolment",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
-    },
     "enrolmentendpoint.getEnrolment" : {
       "path" : "enrolment/{id}",
       "httpMethod" : "GET",
@@ -109,22 +88,6 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
-    },
-    "enrolmentendpoint.updateEnrolment" : {
-      "path" : "enrolment",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.updateEnrolment",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
     }
   },
   "descriptor" : {
@@ -167,8 +130,6 @@
       }
     },
     "methods" : {
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.removeEnrolment" : {
-      },
       "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.getEnrolment" : {
         "response" : {
           "$ref" : "Enrolment"
@@ -185,14 +146,6 @@
       "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.listEnrolment" : {
         "response" : {
           "$ref" : "CollectionResponse_Enrolment"
-        }
-      },
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.updateEnrolment" : {
-        "request" : {
-          "$ref" : "Enrolment"
-        },
-        "response" : {
-          "$ref" : "Enrolment"
         }
       }
     }

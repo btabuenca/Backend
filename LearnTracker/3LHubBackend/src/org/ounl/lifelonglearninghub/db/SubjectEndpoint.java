@@ -268,19 +268,19 @@ public class SubjectEndpoint {
 	 *            the entity to be updated.
 	 * @return The updated entity.
 	 */
-	@ApiMethod(name = "updateSubject")
-	public Subject updateSubject(Subject subject) {
-		PersistenceManager mgr = getPersistenceManager();
-		try {
-			if (!containsSubject(subject)) {
-				throw new EntityNotFoundException("Object does not exist");
-			}
-			mgr.makePersistent(subject);
-		} finally {
-			mgr.close();
-		}
-		return subject;
-	}
+//	@ApiMethod(name = "updateSubject")
+//	public Subject updateSubject(Subject subject) {
+//		PersistenceManager mgr = getPersistenceManager();
+//		try {
+//			if (!containsSubject(subject)) {
+//				throw new EntityNotFoundException("Object does not exist");
+//			}
+//			mgr.makePersistent(subject);
+//		} finally {
+//			mgr.close();
+//		}
+//		return subject;
+//	}
 
 	/**
 	 * This method removes the entity with primary key id. It uses HTTP DELETE
@@ -290,15 +290,15 @@ public class SubjectEndpoint {
 	 *            the primary key of the entity to be deleted.
 	 */
 	@ApiMethod(name = "removeSubject")
-	public void removeSubject(@Named("id") Long id) {
-		PersistenceManager mgr = getPersistenceManager();
-		try {
-			Subject subject = mgr.getObjectById(Subject.class, id);
-			mgr.deletePersistent(subject);
-		} finally {
-			mgr.close();
-		}
-	}
+//	public void removeSubject(@Named("id") Long id) {
+//		PersistenceManager mgr = getPersistenceManager();
+//		try {
+//			Subject subject = mgr.getObjectById(Subject.class, id);
+//			mgr.deletePersistent(subject);
+//		} finally {
+//			mgr.close();
+//		}
+//	}
 
 	private boolean containsSubject(Subject subject) {
 		PersistenceManager mgr = getPersistenceManager();
