@@ -134,22 +134,7 @@ public class ConnectionsManager {
 			e1.printStackTrace();
 		}
 
-		
-		
-		
-		
 
-		// Desarrollo
-		// String url = "jdbc:oracle:thin:@10.254.222.73:1521:OR1";
-		// String user = "cbarreras";
-		// String password = "cbarreras";
-		// String maxConn = "300";
-
-		// Produccion
-//		String url = "jdbc:oracle:thin:@10.254.222.72:1521:OR1";
-//		String user = "CBARRERAS";
-//		String password = "CBARRERAS";
-//		String maxConn = "300";
 
 		int max;
 		try {
