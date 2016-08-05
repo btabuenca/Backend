@@ -13,3 +13,6 @@ hs_err_pid*
 
 # Configuration Files #
 config.properties
+
+# build folders #
+build/
