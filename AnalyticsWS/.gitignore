@@ -12,7 +12,7 @@
 hs_err_pid*
 
 # Configuration Files #
-config.properties
+src/org/btb/analyticsws/db/config.properties
 
 # build folders #
 build/
