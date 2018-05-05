@@ -31,17 +31,9 @@ public class Enrollment {
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
 	
-	private String subject_id;//	'LT2R1'
-	private String enrollment_birth;//	'19770830',
-	private String enrollment_email;//	'bernardo.tabuenca@upm.es'
-	private String enrollment_gender;//	'M'
-	private String enrollment_user;//	'btabuenca'
-	private String enrollment_password;// 'btabu3nca',
-	private String enrollment_type;//	'1'
-	private String enrollment_country;//	'ES'
-	private int enrollment_active;// 0, 1...
-	
-	
+	private String subject_desc;//	'LT2R1'
+	private String student_email;//	email address is selected key
+	private String enrollment_date;//	20180523
 	
 	
 	public Long getId() {
@@ -50,65 +42,25 @@ public class Enrollment {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getSubject_id() {
-		return subject_id;
+	public String getSubject_desc() {
+		return subject_desc;
 	}
-	public void setSubject_id(String subject_id) {
-		this.subject_id = subject_id;
+	public void setSubject_desc(String subject_desc) {
+		this.subject_desc = subject_desc;
 	}
-	public String getEnrollment_birth() {
-		return enrollment_birth;
+	public String getStudent_email() {
+		return student_email;
 	}
-	public void setEnrollment_birth(String enrollment_birth) {
-		this.enrollment_birth = enrollment_birth;
+	public void setStudent_email(String student_email) {
+		this.student_email = student_email;
 	}
-	public String getEnrollment_email() {
-		return enrollment_email;
+	public String getEnrollment_date() {
+		return enrollment_date;
 	}
-	public void setEnrollment_email(String enrollment_email) {
-		this.enrollment_email = enrollment_email;
-	}
-	public String getEnrollment_gender() {
-		return enrollment_gender;
-	}
-	public void setEnrollment_gender(String enrollment_gender) {
-		this.enrollment_gender = enrollment_gender;
-	}
-	public String getEnrollment_user() {
-		return enrollment_user;
-	}
-	public void setEnrollment_user(String enrollment_user) {
-		this.enrollment_user = enrollment_user;
-	}
-	public String getEnrollment_password() {
-		return enrollment_password;
-	}
-	public void setEnrollment_password(String enrollment_password) {
-		this.enrollment_password = enrollment_password;
-	}
-	public String getEnrollment_type() {
-		return enrollment_type;
-	}
-	public void setEnrollment_type(String enrollment_type) {
-		this.enrollment_type = enrollment_type;
-	}
-	public String getEnrollment_country() {
-		return enrollment_country;
-	}
-	public void setEnrollment_country(String enrollment_country) {
-		this.enrollment_country = enrollment_country;
-	}
-	public int getEnrollment_active() {
-		return enrollment_active;
-	}
-	public void setEnrollment_active(int enrollment_active) {
-		this.enrollment_active = enrollment_active;
+	public void setEnrollment_date(String enrollment_date) {
+		this.enrollment_date = enrollment_date;
 	}
 	
-
-
-
-
 
 
 }

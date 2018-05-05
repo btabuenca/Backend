@@ -34,11 +34,13 @@ public class Csv2Curl {
 
 	private static final String WS_URL_YARD = "https://lifelong-learning-hub.appspot.com/_ah/api/subjectendpoint/v1/subject";
 	private static final String WS_URL_USER = "https://lifelong-learning-hub.appspot.com/_ah/api/userendpoint/v1/user";
+	private static final String WS_URL_ENROLLMENT = "https://lifelong-learning-hub.appspot.com/_ah/api/enrollmentendpoint/v1/enrollment";
 
 	private static final String PARAM_SUBJECTS = "S";
 	private static final String PARAM_USERS = "U";
 
-	private static final String COURSE = "LT2R1";
+	//private static final String COURSE = "LT2R1";
+	private static final String COURSE = "MOOC_ML_ES";
 	//private static final String PATH_FILES = "/Users/BTB/Projects/3LHub/db/ScriptsAppengineDB/";
 	private static final String PATH_FILES = "/Users/BTB/Projects/GitHub/Backend/LearnTracker/Csv2CurlParser/files/";
 	

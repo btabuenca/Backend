@@ -1,0 +1,216 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://lifelong-learning-hub.appspot.com/_ah/api",
+  "name" : "studentendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://lifelong-learning-hub.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "ounl.org",
+  "ownerName" : "ounl.org",
+  "packagePath" : "lifelonglearninghub.db",
+  "methods" : {
+    "studentendpoint.getStudent" : {
+      "path" : "student/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.StudentEndpoint.getStudent",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "studentendpoint.removeStudent" : {
+      "path" : "student/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.StudentEndpoint.removeStudent",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "studentendpoint.updateStudent" : {
+      "path" : "student",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.StudentEndpoint.updateStudent",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "studentendpoint.listStudent" : {
+      "path" : "student",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.StudentEndpoint.listStudent",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "studentendpoint.insertStudent" : {
+      "path" : "student",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.StudentEndpoint.insertStudent",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Student" : {
+        "id" : "Student",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "student_fullname" : {
+            "type" : "string"
+          },
+          "student_name" : {
+            "type" : "string"
+          },
+          "stuent_password" : {
+            "type" : "string"
+          },
+          "student_birth" : {
+            "type" : "string"
+          },
+          "student_email" : {
+            "type" : "string"
+          },
+          "student_gender" : {
+            "type" : "string"
+          },
+          "student_type" : {
+            "type" : "string"
+          },
+          "student_country" : {
+            "type" : "string"
+          },
+          "student_active" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "CollectionResponse_Student" : {
+        "id" : "CollectionResponse_Student",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Student"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "org.ounl.lifelonglearninghub.db.StudentEndpoint.getStudent" : {
+        "response" : {
+          "$ref" : "Student"
+        }
+      },
+      "org.ounl.lifelonglearninghub.db.StudentEndpoint.removeStudent" : {
+      },
+      "org.ounl.lifelonglearninghub.db.StudentEndpoint.updateStudent" : {
+        "request" : {
+          "$ref" : "Student"
+        },
+        "response" : {
+          "$ref" : "Student"
+        }
+      },
+      "org.ounl.lifelonglearninghub.db.StudentEndpoint.listStudent" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Student"
+        }
+      },
+      "org.ounl.lifelonglearninghub.db.StudentEndpoint.insertStudent" : {
+        "request" : {
+          "$ref" : "Student"
+        },
+        "response" : {
+          "$ref" : "Student"
+        }
+      }
+    }
+  }
+}

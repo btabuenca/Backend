@@ -115,32 +115,14 @@
             "type" : "string",
             "format" : "int64"
           },
-          "subject_id" : {
+          "subject_desc" : {
             "type" : "string"
           },
-          "enrollment_birth" : {
+          "student_email" : {
             "type" : "string"
           },
-          "enrollment_email" : {
+          "enrollment_date" : {
             "type" : "string"
-          },
-          "enrollment_gender" : {
-            "type" : "string"
-          },
-          "enrollment_user" : {
-            "type" : "string"
-          },
-          "enrollment_password" : {
-            "type" : "string"
-          },
-          "enrollment_type" : {
-            "type" : "string"
-          },
-          "enrollment_country" : {
-            "type" : "string"
-          },
-          "enrollment_active" : {
-            "type" : "integer"
           }
         }
       }
