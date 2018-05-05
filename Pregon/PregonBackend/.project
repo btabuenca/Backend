@@ -21,17 +21,29 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>com.google.appengine.eclipse.core.gaeProjectChangeNotifier</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>com.google.appengine.eclipse.core.projectValidator</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
+=======
 			<name>com.google.appengine.eclipse.core.enhancerbuilder</name>
+>>>>>>> origin/master
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+<<<<<<< HEAD
+			<name>com.google.appengine.eclipse.core.projectValidator</name>
+=======
+			<name>com.google.appengine.eclipse.core.gaeProjectChangeNotifier</name>
+>>>>>>> origin/master
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+<<<<<<< HEAD
+			<name>com.google.appengine.eclipse.core.enhancerbuilder</name>
+=======
+			<name>com.google.appengine.eclipse.core.projectValidator</name>
+>>>>>>> origin/master
 			<arguments>
 			</arguments>
 		</buildCommand>

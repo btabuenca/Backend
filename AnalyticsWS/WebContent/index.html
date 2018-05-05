@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analytics Web Service API</title>
+</head>
+<body>
+
+	<h1>Analytics Web Service API</h1>
+	</br>
+	
+	<table border="1">	
+	<tr>
+		<td colspan="5" align="center" bgcolor="#acdced">Resources <b>expediciones</b></td>
+	</tr>	
+	<tr>
+		<td align="center"><b>url</b></td>
+		<td align="center"><b>method</b></td>
+		<td align="center"><b>headers</b></td>
+		<td align="center"><b>body</b></td>
+		<td align="center"><b>result</b></td>
+	</tr>
+	<tr>
+		<td>http://localhost:8080/AnalyticsWS/rest/expediciones</td>
+		<td>GET</td>
+		<td>Content-Type: application/json</td>
+		<td>-</td>
+		<td><a href="http://localhost:8080/AnalyticsWS/rest/expediciones">Returns all expediciones</a></td>		
+	</tr>
+	<tr>
+		<td>http://localhost:8080/AnalyticsWS/rest/expediciones/265</td>
+		<td>GET</td>
+		<td>Content-Type: application/json</td>
+		<td>-</td>
+		<td><a href="http://localhost:8080/AnalyticsWS/rest/expediciones/265">Returns expedicion with idregistro = 265</a></td>		
+	</tr>
+	<tr>
+		<td colspan="5" align="center" bgcolor="#acdced">Resource <b>recepciones</b></td>
+	</tr>		
+	<tr>
+		<td>http://localhost:8080/AnalyticsWS/rest/recepciones</td>
+		<td>GET</td>
+		<td>Content-Type: application/json</td>
+		<td>-</td>
+		<td><a href="http://localhost:8080/AnalyticsWS/rest/recepciones">Returns all recepciones</a></td>		
+	</tr>
+	<tr>
+		<td>http://localhost:8080/AnalyticsWS/rest/recepciones/481</td>
+		<td>GET</td>
+		<td>Content-Type: application/json</td>
+		<td>-</td>
+		<td><a href="http://localhost:8080/AnalyticsWS/rest/recepciones/481">Returns recepciones with idregistro = 481</a></td>		
+	</tr>		
+
+<!-- 
+	<tr>
+		<td valign="top">http://localhost:8080/MtrackWS/rest/voys</td>
+		<td valign="top">POST</td>
+		<td valign="top">Content-Type: application/json</td>
+		<td valign="top">
+			<pre>
+{
+  "lib_voyage": "REMISE A QUAI GAGNE",
+  "cvoy": "QUAI37",
+  "age": "0V3",
+  "seq_voyage": "0V348947187",
+  "seq_section": "0V30219",
+  "datp_dep_plan": "1906-01-08",
+  "dist_tot_reel": 0,
+  "etat_voy_mtrack": "NC",
+  "cod_terminal": null,
+  "actualizado": "N",
+  "seq_ress_chauf": null,
+  "lib_ress_chauf": null,
+  "seq_ress_st": null,
+  "lib_ress_st": null,
+  "fecha_actualizacion": null,
+  "fecha_creacion": "2015-01-12",
+  "fecha_modificacion": null,
+  "incidencias_viaje": null,
+  "typ_parcours": "AQ",
+  "cod_agencia": "8000V3",
+  "seq_voy_lie": null,
+  "duree": 0,
+  "dist_tot": 0,
+  "dist_vide": 0,
+  "desc_voy": null,
+  "groupe_voy": "QUAI",
+  "cc_metier": "890000V3",
+  "hora_carga": null
+}
+			
+			</pre>
+		</td>
+		<td valign="top"><a href="http://localhost:8080/MtrackWS/rest/voys">Inserts an item</a></td>		
+	</tr>	
+			
+	<tr>
+		<td>http://localhost:8080/MtrackWS/rest/voys/0V348947196</td>
+		<td>GET</td>
+		<td>Content-Type: application/json</td>
+		<td>-</td>
+		<td><a href="http://localhost:8080/MtrackWS/rest/voys/0V348947196">Returns item with "seq_voyage": "0V348947196"</a>.</td>
+	</tr>
+	<tr>
+		<td valign="top">http://localhost:8080/MtrackWS/rest/voys/0V348947196</td>
+		<td valign="top">PUT</td>
+		<td valign="top">Content-Type: application/json</td>
+		<td valign="top">
+<pre>
+{
+  "lib_voyage": "REMISE A QUAI GAGNE",
+  "cvoy": "QUAI37",
+  "age": "0V3",
+  "seq_voyage": "0V348947187",
+  "seq_section": "0V30219",
+  "datp_dep_plan": "1906-01-08",
+  "dist_tot_reel": 0,
+  "etat_voy_mtrack": "NC",
+  "cod_terminal": null,
+  "actualizado": "N",
+  "seq_ress_chauf": null,
+  "lib_ress_chauf": null,
+  "seq_ress_st": null,
+  "lib_ress_st": null,
+  "fecha_actualizacion": null,
+  "fecha_creacion": "2015-01-12",
+  "fecha_modificacion": null,
+  "incidencias_viaje": null,
+  "typ_parcours": "AQ",
+  "cod_agencia": "8000V3",
+  "seq_voy_lie": null,
+  "duree": 0,
+  "dist_tot": 0,
+  "dist_vide": 0,
+  "desc_voy": null,
+  "groupe_voy": "QUAI",
+  "cc_metier": "890000V3",
+  "hora_carga": null
+}
+
+</pre>
+		</td>
+		<td valign="top"><a href="http://localhost:8080/MtrackWS/rest/voys/0V348947196">Updates item with "seq_voyage": "0V348947196"</a></td>
+	</tr>
+	<tr>
+		<td valign="top">http://localhost:8080/MtrackWS/rest/voys/0V348947196</td>
+		<td valign="top">DELETE</td>
+		<td valign="top">Content-Type: application/json</td>
+		<td valign="top">-</td>
+		<td valign="top"><a href="http://localhost:8080/MtrackWS/rest/voys/0V348947196">Deletes item with "seq_voyage": "0V348947196"</a></td>
+	</tr>		
+	<tr>
+		<td>http://localhost:8080/MtrackWS/rest/voys/count</td>
+		<td>GET</td>
+		<td>Content-Type: application/json</td>
+		<td>MediaType.APPLICATION_JSON</td>
+		<td><a href="http://localhost:8080/MtrackWS/rest/voys/count">Number of inserted items</a></td>		
+	</tr>
+
+-->
+		
+	</table>
+		
+
+	<table align="center" width="100%" border="0">
+	<tr>
+		<td align="center">Bernardo Tabuenca Archilla</td>
+		<td align="center"><img src="./img/logo.png" border="0"/></td>
+	</tr>
+	</table>	
+
+</body>
+</html>
