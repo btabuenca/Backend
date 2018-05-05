@@ -31,7 +31,7 @@ public class Enrollment {
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
 	
-	private Long subject_id;//	'LT2R1'
+	private String subject_id;//	'LT2R1'
 	private String enrollment_birth;//	'19770830',
 	private String enrollment_email;//	'bernardo.tabuenca@upm.es'
 	private String enrollment_gender;//	'M'
@@ -50,10 +50,10 @@ public class Enrollment {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getSubject_id() {
+	public String getSubject_id() {
 		return subject_id;
 	}
-	public void setSubject_id(Long subject_id) {
+	public void setSubject_id(String subject_id) {
 		this.subject_id = subject_id;
 	}
 	public String getEnrollment_birth() {

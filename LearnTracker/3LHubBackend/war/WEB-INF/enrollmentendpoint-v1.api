@@ -116,8 +116,7 @@
             "format" : "int64"
           },
           "subject_id" : {
-            "type" : "string",
-            "format" : "int64"
+            "type" : "string"
           },
           "enrollment_birth" : {
             "type" : "string"
