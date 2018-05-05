@@ -33,7 +33,7 @@ public class Student {
 	
 	private String student_fullname;//	'Bernardo Tabuenca Archilla'
 	private String student_name;//	'btabuenca'
-	private String stuent_password;// 'btabu3nca',
+	private String student_password;// 'btabu3nca',
 	private String student_birth;//	'19770830',
 	private String student_email;//	'bernardo.tabuenca@upm.es'
 	private String student_gender;//	'M'
@@ -60,11 +60,11 @@ public class Student {
 	public void setStudent_name(String student_name) {
 		this.student_name = student_name;
 	}
-	public String getStuent_password() {
-		return stuent_password;
+	public String getStudent_password() {
+		return student_password;
 	}
-	public void setStuent_password(String stuent_password) {
-		this.stuent_password = stuent_password;
+	public void setStudent_password(String student_password) {
+		this.student_password = student_password;
 	}
 	public String getStudent_birth() {
 		return student_birth;
