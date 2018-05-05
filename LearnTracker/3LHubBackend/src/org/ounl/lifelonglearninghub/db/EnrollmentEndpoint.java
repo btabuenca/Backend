@@ -37,8 +37,8 @@ import com.google.api.server.spi.response.CollectionResponse;
 import com.google.appengine.api.datastore.Cursor;
 import com.google.appengine.datanucleus.query.JDOCursorHelper;
 
-@Api(name = "enrolmentendpoint", namespace = @ApiNamespace(ownerDomain = "ounl.org", ownerName = "ounl.org", packagePath = "lifelonglearninghub.db"))
-public class EnrolmentEndpoint {
+@Api(name = "enrollmentendpoint", namespace = @ApiNamespace(ownerDomain = "ounl.org", ownerName = "ounl.org", packagePath = "lifelonglearninghub.db"))
+public class EnrollmentEndpoint {
 
 	/**
 	 * This method lists all the entities inserted in datastore. It uses HTTP
@@ -48,18 +48,18 @@ public class EnrolmentEndpoint {
 	 *         persisted and a cursor to the next page.
 	 */
 	@SuppressWarnings({ "unchecked", "unused" })
-	@ApiMethod(name = "listEnrolment")
-	public CollectionResponse<Enrolment> listEnrolment(
+	@ApiMethod(name = "listEnrollment")
+	public CollectionResponse<Enrollment> listEnrollment(
 			@Nullable @Named("cursor") String cursorString,
 			@Nullable @Named("limit") Integer limit) {
 
 		PersistenceManager mgr = null;
 		Cursor cursor = null;
-		List<Enrolment> execute = null;
+		List<Enrollment> execute = null;
 
 		try {
 			mgr = getPersistenceManager();
-			Query query = mgr.newQuery(Enrolment.class);
+			Query query = mgr.newQuery(Enrollment.class);
 			if (cursorString != null && cursorString != "") {
 				cursor = Cursor.fromWebSafeString(cursorString);
 				HashMap<String, Object> extensionMap = new HashMap<String, Object>();
@@ -71,7 +71,7 @@ public class EnrolmentEndpoint {
 				query.setRange(0, limit);
 			}
 
-			execute = (List<Enrolment>) query.execute();
+			execute = (List<Enrollment>) query.execute();
 			cursor = JDOCursorHelper.getCursor(execute);
 			if (cursor != null)
 				cursorString = cursor.toWebSafeString();
@@ -79,13 +79,13 @@ public class EnrolmentEndpoint {
 			// Tight loop for fetching all entities from datastore and
 			// accomodate
 			// for lazy fetch.
-			for (Enrolment obj : execute)
+			for (Enrollment obj : execute)
 				;
 		} finally {
 			mgr.close();
 		}
 
-		return CollectionResponse.<Enrolment> builder().setItems(execute)
+		return CollectionResponse.<Enrollment> builder().setItems(execute)
 				.setNextPageToken(cursorString).build();
 	}
 
@@ -97,16 +97,16 @@ public class EnrolmentEndpoint {
 	 *            the primary key of the java bean.
 	 * @return The entity with primary key id.
 	 */
-	@ApiMethod(name = "getEnrolment")
-	public Enrolment getEnrolment(@Named("id") Long id) {
+	@ApiMethod(name = "getEnrollment")
+	public Enrollment getEnrollment(@Named("id") Long id) {
 		PersistenceManager mgr = getPersistenceManager();
-		Enrolment enrolment = null;
+		Enrollment enrollment = null;
 		try {
-			enrolment = mgr.getObjectById(Enrolment.class, id);
+			enrollment = mgr.getObjectById(Enrollment.class, id);
 		} finally {
 			mgr.close();
 		}
-		return enrolment;
+		return enrollment;
 	}
 
 	/**
@@ -114,24 +114,24 @@ public class EnrolmentEndpoint {
 	 * already exists in the datastore, an exception is thrown. It uses HTTP
 	 * POST method.
 	 * 
-	 * @param enrolment
+	 * @param enrollment
 	 *            the entity to be inserted.
 	 * @return The inserted entity.
 	 */
-	@ApiMethod(name = "insertEnrolment")
-	public Enrolment insertEnrolment(Enrolment enrolment) {
+	@ApiMethod(name = "insertEnrollment")
+	public Enrollment insertEnrollment(Enrollment enrollment) {
 		PersistenceManager mgr = getPersistenceManager();
 		try {
-			if (enrolment.getId() != null) {
-				if (containsEnrolment(enrolment)) {
+			if (enrollment.getId() != null) {
+				if (containsEnrollment(enrollment)) {
 					throw new EntityExistsException("Object already exists");
 				}
 			}
-			mgr.makePersistent(enrolment);
+			mgr.makePersistent(enrollment);
 		} finally {
 			mgr.close();
 		}
-		return enrolment;
+		return enrollment;
 	}
 
 	/**
@@ -139,22 +139,22 @@ public class EnrolmentEndpoint {
 	 * not exist in the datastore, an exception is thrown. It uses HTTP PUT
 	 * method.
 	 * 
-	 * @param enrolment
+	 * @param enrollment
 	 *            the entity to be updated.
 	 * @return The updated entity.
 	 */
-//	@ApiMethod(name = "updateEnrolment")
-//	public Enrolment updateEnrolment(Enrolment enrolment) {
+//	@ApiMethod(name = "updateEnrollment")
+//	public Enrollment updateEnrollment(Enrollment enrollment) {
 //		PersistenceManager mgr = getPersistenceManager();
 //		try {
-//			if (!containsEnrolment(enrolment)) {
+//			if (!containsEnrollment(enrollment)) {
 //				throw new EntityNotFoundException("Object does not exist");
 //			}
-//			mgr.makePersistent(enrolment);
+//			mgr.makePersistent(enrollment);
 //		} finally {
 //			mgr.close();
 //		}
-//		return enrolment;
+//		return enrollment;
 //	}
 
 	/**
@@ -164,22 +164,22 @@ public class EnrolmentEndpoint {
 	 * @param id
 	 *            the primary key of the entity to be deleted.
 	 */
-//	@ApiMethod(name = "removeEnrolment")
-//	public void removeEnrolment(@Named("id") Long id) {
+//	@ApiMethod(name = "removeEnrollment")
+//	public void removeEnrollment(@Named("id") Long id) {
 //		PersistenceManager mgr = getPersistenceManager();
 //		try {
-//			Enrolment enrolment = mgr.getObjectById(Enrolment.class, id);
-//			mgr.deletePersistent(enrolment);
+//			Enrollment enrollment = mgr.getObjectById(Enrollment.class, id);
+//			mgr.deletePersistent(enrollment);
 //		} finally {
 //			mgr.close();
 //		}
 //	}
 
-	private boolean containsEnrolment(Enrolment enrolment) {
+	private boolean containsEnrollment(Enrollment enrollment) {
 		PersistenceManager mgr = getPersistenceManager();
 		boolean contains = true;
 		try {
-			mgr.getObjectById(Enrolment.class, enrolment.getId());
+			mgr.getObjectById(Enrollment.class, enrollment.getId());
 		} catch (javax.jdo.JDOObjectNotFoundException ex) {
 			contains = false;
 		} finally {

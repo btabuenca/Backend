@@ -26,7 +26,7 @@ public class _LHubBackendServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		resp.setContentType("text/plain");
-		resp.getWriter().println("Welcome to the Lifelong Learning Hub Backend");
+		resp.getWriter().println("Welcome to the LearnTracker Backend");
 		resp.getWriter().println("(c) Bernardo Tabuenca");
 	}
 }

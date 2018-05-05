@@ -2,7 +2,7 @@
   "extends" : "thirdParty.api",
   "abstract" : false,
   "root" : "https://lifelong-learning-hub.appspot.com/_ah/api",
-  "name" : "enrolmentendpoint",
+  "name" : "enrollmentendpoint",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
@@ -27,51 +27,14 @@
   "ownerName" : "ounl.org",
   "packagePath" : "lifelonglearninghub.db",
   "methods" : {
-    "enrolmentendpoint.getEnrolment" : {
-      "path" : "enrolment/{id}",
+    "enrollmentendpoint.listEnrollment" : {
+      "path" : "enrollment",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.getEnrolment",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "enrolmentendpoint.insertEnrolment" : {
-      "path" : "enrolment",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.insertEnrolment",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "enrolmentendpoint.listEnrolment" : {
-      "path" : "enrolment",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.listEnrolment",
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrollmentEndpoint.listEnrollment",
       "request" : {
         "parameters" : {
           "cursor" : {
@@ -88,64 +51,118 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
+    },
+    "enrollmentendpoint.insertEnrollment" : {
+      "path" : "enrollment",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrollmentEndpoint.insertEnrollment",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "enrollmentendpoint.getEnrollment" : {
+      "path" : "enrollment/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.ounl.lifelonglearninghub.db.EnrollmentEndpoint.getEnrollment",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "Enrolment" : {
-        "id" : "Enrolment",
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "id_user" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "id_subject" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "enrolment_active" : {
-            "type" : "integer"
-          }
-        }
-      },
-      "CollectionResponse_Enrolment" : {
-        "id" : "CollectionResponse_Enrolment",
+      "CollectionResponse_Enrollment" : {
+        "id" : "CollectionResponse_Enrollment",
         "type" : "object",
         "properties" : {
           "items" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Enrolment"
+              "$ref" : "Enrollment"
             }
           },
           "nextPageToken" : {
             "type" : "string"
           }
         }
+      },
+      "Enrollment" : {
+        "id" : "Enrollment",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "subject_id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "enrollment_birth" : {
+            "type" : "string"
+          },
+          "enrollment_email" : {
+            "type" : "string"
+          },
+          "enrollment_gender" : {
+            "type" : "string"
+          },
+          "enrollment_user" : {
+            "type" : "string"
+          },
+          "enrollment_password" : {
+            "type" : "string"
+          },
+          "enrollment_type" : {
+            "type" : "string"
+          },
+          "enrollment_country" : {
+            "type" : "string"
+          },
+          "enrollment_active" : {
+            "type" : "integer"
+          }
+        }
       }
     },
     "methods" : {
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.getEnrolment" : {
+      "org.ounl.lifelonglearninghub.db.EnrollmentEndpoint.listEnrollment" : {
         "response" : {
-          "$ref" : "Enrolment"
+          "$ref" : "CollectionResponse_Enrollment"
         }
       },
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.insertEnrolment" : {
+      "org.ounl.lifelonglearninghub.db.EnrollmentEndpoint.insertEnrollment" : {
         "request" : {
-          "$ref" : "Enrolment"
+          "$ref" : "Enrollment"
         },
         "response" : {
-          "$ref" : "Enrolment"
+          "$ref" : "Enrollment"
         }
       },
-      "org.ounl.lifelonglearninghub.db.EnrolmentEndpoint.listEnrolment" : {
+      "org.ounl.lifelonglearninghub.db.EnrollmentEndpoint.getEnrollment" : {
         "response" : {
-          "$ref" : "CollectionResponse_Enrolment"
+          "$ref" : "Enrollment"
         }
       }
     }
