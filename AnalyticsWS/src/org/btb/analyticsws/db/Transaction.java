@@ -9,7 +9,6 @@
  */
 package org.btb.analyticsws.db;
 
-import org.apache.log4j.*;
 
 
 import java.sql.*;

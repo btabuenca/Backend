@@ -9,7 +9,7 @@
  */
 package org.btb.analyticsws.db.vo;
 
-import java.util.Date;
+
 
 
 public class VoyVO {

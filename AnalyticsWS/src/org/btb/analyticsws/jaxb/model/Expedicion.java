@@ -9,11 +9,10 @@
  */
 package org.btb.analyticsws.jaxb.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.btb.analyticsws.db.vo.VoyVO;
+
 
 @XmlRootElement
 // JAX-RS supports automatic mapping from JAXB annotated class to XML and JSON

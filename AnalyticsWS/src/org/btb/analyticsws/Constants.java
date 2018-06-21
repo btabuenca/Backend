@@ -9,7 +9,6 @@
  */
 package org.btb.analyticsws;
 
-import java.text.SimpleDateFormat;
 
 public class Constants {
 	
