@@ -1,0 +1,208 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://pregon-143314.appspot.com/_ah/api",
+  "name" : "eventendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://pregon-143314.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "upm.org",
+  "ownerName" : "upm.org",
+  "packagePath" : "pregonbackend.db",
+  "methods" : {
+    "eventendpoint.updateEvent" : {
+      "path" : "event",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.upm.pregonbackend.db.EventEndpoint.updateEvent",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventendpoint.getEvent" : {
+      "path" : "event/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.upm.pregonbackend.db.EventEndpoint.getEvent",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventendpoint.listEvent" : {
+      "path" : "event",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.upm.pregonbackend.db.EventEndpoint.listEvent",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventendpoint.removeEvent" : {
+      "path" : "event/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.upm.pregonbackend.db.EventEndpoint.removeEvent",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "eventendpoint.insertEvent" : {
+      "path" : "event",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "org.upm.pregonbackend.db.EventEndpoint.insertEvent",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Event" : {
+        "id" : "Event",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "timestamp" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "subtitle" : {
+            "type" : "string"
+          },
+          "subsubtitle" : {
+            "type" : "string"
+          },
+          "author" : {
+            "type" : "string"
+          },
+          "state" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "CollectionResponse_Event" : {
+        "id" : "CollectionResponse_Event",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Event"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "org.upm.pregonbackend.db.EventEndpoint.updateEvent" : {
+        "request" : {
+          "$ref" : "Event"
+        },
+        "response" : {
+          "$ref" : "Event"
+        }
+      },
+      "org.upm.pregonbackend.db.EventEndpoint.getEvent" : {
+        "response" : {
+          "$ref" : "Event"
+        }
+      },
+      "org.upm.pregonbackend.db.EventEndpoint.listEvent" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Event"
+        }
+      },
+      "org.upm.pregonbackend.db.EventEndpoint.removeEvent" : {
+      },
+      "org.upm.pregonbackend.db.EventEndpoint.insertEvent" : {
+        "request" : {
+          "$ref" : "Event"
+        },
+        "response" : {
+          "$ref" : "Event"
+        }
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>org.ounl.lifelonglearninghub.db.ActivityEndpoint,org.ounl.lifelonglearninghub.db.EnrolmentEndpoint,org.ounl.lifelonglearninghub.db.GoalEndpoint,org.ounl.lifelonglearninghub.db.SubjectEndpoint,org.ounl.lifelonglearninghub.db.UserEndpoint</param-value>
+   <param-value>org.ounl.lifelonglearninghub.db.ActivityEndpoint,org.ounl.lifelonglearninghub.db.EnrollmentEndpoint,org.ounl.lifelonglearninghub.db.GoalEndpoint,org.ounl.lifelonglearninghub.db.StudentEndpoint,org.ounl.lifelonglearninghub.db.SubjectEndpoint,org.ounl.lifelonglearninghub.db.UserEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>
